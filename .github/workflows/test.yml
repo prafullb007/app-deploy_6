@@ -21,7 +21,11 @@ jobs:
         run: |
           pip install pytest
 
-      - name: Run pytest tests
+      - name: Install pytest-cov
         run: |
-          pytest test_script.py
+          pip install pytest-cov
+
+      - name: Run pytest with coverage
+        run: |
+          pytest test_script.py --cov=.
 
