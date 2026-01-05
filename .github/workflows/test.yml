@@ -17,15 +17,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install pytest
+      - name: Install dependencies
         run: |
-          pip install pytest
-
-      - name: Install pytest-cov
-        run: |
-          pip install pytest-cov
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov
 
       - name: Run pytest with coverage
         run: |
-          pytest test_script.py --cov=.
+          pytest --cov=script --cov-report=term
 
